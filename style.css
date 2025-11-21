@@ -1,0 +1,236 @@
+/* ---------------------------------- */
+/* CSS STYLES FOR MOBILE CBT INTERFACE */
+/* ---------------------------------- */
+body { 
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    background-color: #f0f0f0; 
+}
+/* Header Styling (Matches your images) */
+.header { 
+    background-color: #ffffff; 
+    padding: 10px 20px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    position: sticky; 
+    top: 0; 
+    z-index: 10; 
+}
+.logo { 
+    font-size: 24px; 
+    font-weight: bold; 
+    color: #007bff; 
+}
+.timer { 
+    font-size: 14px; 
+    color: #333; 
+    display: flex; 
+    align-items: center; 
+}
+.timer-unit { 
+    background-color: #000; 
+    color: #fff; 
+    padding: 2px 5px; 
+    border-radius: 3px; 
+    font-weight: bold; 
+    margin: 0 5px; 
+    min-width: 20px; 
+    text-align: center; 
+}
+
+/* Main Content: Full width on mobile/no sidebar */
+.main-content { 
+    display: flex; 
+    padding: 10px; 
+    max-width: 100%; /* Full width */
+    margin: 0 auto; 
+}
+.question-panel { 
+    flex: 1; /* Take full space */
+    padding-right: 0; 
+}
+
+/* Hiding the old sidebar */
+.status-panel { 
+    display: none; /* Hide the vertical status bar */
+}
+
+.test-info { 
+    background-color: #e6f0ff; 
+    color: #007bff; 
+    padding: 10px 20px; 
+    font-weight: bold; 
+    border-bottom: 2px solid #007bff; 
+    margin-bottom: 15px; 
+}
+
+/* Question Area */
+.question-container { 
+    background-color: #fff; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 0 5px rgba(0,0,0,0.1); 
+    margin-bottom: 20px; 
+}
+.question-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-bottom: 1px solid #ddd; 
+    padding-bottom: 10px; 
+    margin-bottom: 15px; 
+}
+.q-no { 
+    font-size: 18px; 
+    font-weight: bold; 
+    color: #333; 
+}
+
+/* Options */
+.options label { 
+    display: flex; /* Flex layout for options */
+    align-items: center;
+    margin: 15px 0; 
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    transition: background-color 0.2s; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.options input[type="radio"] { 
+    margin-right: 15px; 
+    accent-color: #007bff; 
+    transform: scale(1.2); /* Slightly larger radio buttons */
+}
+
+/* Navigation Buttons (Bottom) */
+.navigation-bar { 
+    display: flex; 
+    gap: 10px; 
+    padding-top: 20px; 
+    border-top: 1px solid #eee; 
+    margin-top: 20px; 
+}
+.nav-btn { 
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    color: #fff; 
+    flex-grow: 1; 
+    font-size: 14px;
+}
+.nav-btn.mark-save { background-color: #6f42c1; } 
+.nav-btn.clear-response { background-color: #dc3545; } 
+.nav-btn.save, .nav-btn.next-q { background-color: #007bff; } 
+.nav-btn.submit-test { 
+    background-color: #ffc107; 
+    color: #333; 
+    flex-grow: 1.5; /* Submit button slightly wider */
+}
+
+/* Status Grid (Hidden from main view, only for popup/review if implemented) */
+.status-panel-hidden {
+    background-color: #fff;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    display: none; /* Hide unless explicitly shown */
+}
+.status-grid { 
+    display: grid; 
+    grid-template-columns: repeat(6, 1fr); /* More columns for mobile screen */
+    gap: 8px; 
+}
+.status-box { 
+    padding: 10px 5px; 
+    border-radius: 4px; 
+    text-align: center; 
+    cursor: pointer; 
+    font-weight: bold; 
+    color: #333; 
+    font-size: 12px;
+}
+.status-not-visited { background-color: #fff; border: 1px solid #ccc; } 
+.status-answered { background-color: #28a745; color: #fff; } /* Answered is Green */
+.status-marked { background-color: #ffc107; } /* Marked is Yellow */
+.status-answered-marked { background-color: #6f42c1; color: #fff; } /* Marked & Answered is Purple */
+
+
+/* MODALS (Review and Result Popups) */
+.modal-overlay { 
+    display: none; 
+    position: fixed; 
+    z-index: 20; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.6); 
+    justify-content: center; 
+    align-items: center; 
+}
+.modal-content { 
+    background-color: #fff; 
+    margin: 15% 10px; /* Better margin for mobile */
+    padding: 20px; 
+    border: 1px solid #888; 
+    width: 90%; 
+    max-width: 400px; 
+    border-radius: 10px; 
+}
+
+/* Result/Review Box - PDF Style */
+.review-box { 
+    background-color: #fff; 
+    margin: 5% 10px; 
+    padding: 30px; 
+    width: 90%; 
+    max-width: 800px; 
+    border-radius: 10px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+}
+.score-summary { 
+    text-align: center; 
+    margin-bottom: 20px; 
+    padding: 15px; 
+    border: 2px solid #007bff; 
+    border-radius: 5px; 
+}
+
+/* PDF Style Review Answers */
+.review-question {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+}
+.review-question p {
+    margin-top: 0;
+    font-weight: bold;
+}
+.review-option {
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    border-left: 5px solid transparent;
+}
+.correct-answer {
+    background-color: #d4edda; /* Light Green */
+    border-left-color: #28a745; /* Green */
+    font-weight: bold;
+}
+.wrong-answer {
+    background-color: #f8d7da; /* Light Red */
+    border-left-color: #dc3545; /* Red */
+}
+.user-selected {
+    font-style: italic;
+    text-decoration: underline;
+}
